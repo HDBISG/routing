@@ -11,10 +11,12 @@ import App from "./App";
 import Users from "./Users";
 import Contact from "./Contact";
 import Customer from "./Customer";
+import RedirectHome from "./RedirectHome";
 import Notfound from "./Notfound";
 
+
 const routing = (
-  <Router>
+  <Router basename="route">
     <div>
       <ul>
         <li>
@@ -37,6 +39,11 @@ const routing = (
             Customer
           </NavLink>
         </li>
+        <li>
+          <NavLink activeClassName="active" to="/RedirectHome">
+          RedirectHome
+          </NavLink>
+        </li>
       </ul>
       <hr />
       <Switch>
@@ -44,6 +51,7 @@ const routing = (
         <Route path="/users" component={Users} />
         <Route path="/contact" component={Contact} />
         <Route path="/Customer" component={Customer} />
+        <Route path="/RedirectHome" component={RedirectHome} />
         <Route component={Notfound} />
       </Switch>
     </div>

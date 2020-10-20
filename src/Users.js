@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 
-const User = ({ match }) => {
-  console.log(`${JSON.stringify(match)}`);
+const User = ({ match, location, props }) => {
+  console.log(`${JSON.stringify(match)}`, `${JSON.stringify(location)}`, `${JSON.stringify(props)}` );
   return <p>{match.params.id}</p>;
 };
 
@@ -15,16 +15,17 @@ class Users extends React.Component {
         <strong>select a user</strong>
         <ul>
           <li>
-            <Link to="/users/1">User 1 </Link>
+            <Link to="/users/1?id=a">User 1 </Link>
           </li>
           <li>
-            <Link to="/users/2">User 2 </Link>
+            <Link to={{'pathname':'/users/2', 'querya':'{id:b}'}}>User 2 </Link>
           </li>
           <li>
-            <Link to="/users/3">User 3 </Link>
+            <Link to="/users/3?id=c">User 3 </Link>
           </li>
         </ul>
         <Route path="/users/:id" component={User} />
+        <p> end User page</p>
       </div>
     );
   }
